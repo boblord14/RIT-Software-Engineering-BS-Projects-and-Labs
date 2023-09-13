@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <!--98% of this is yoinked from the actual rit login page via inspect element. This was done to replicate it perfectly, as we needed to simpulate the rit login. 
+        Most assets on here were sourced the same way from the same page. 
+        Thanks Mr. RIT web designer person-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#F76902">
+    <meta name="description" content="RIT Login">
+    <title>RIT Login</title>
+    <link rel="shortcut icon" href="../resources/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../shib.css">
+  </head>
+  <title>RIT Laundry- Login</title>
+  <meta name="Rit Laundry" content="Login Page">
+  </head>
+  <body><span class="originalHeader"><a href="https://rit.edu" target="_blank" rel="noreferrer"><img src="../resources/RIT_hor_w.png" width="375px" alt="RIT Logo"></a></span>
+    <div class="container">
+      <div class="loginBox"><img src="../resources/RIT_RGB_hor.png" class="ritLogo" alt="RIT Logo"><span class="contactInfo">
+          <p> Login to rit.laundry.com </p>
+        </span>
+        <form><input type="hidden">
+          <div class="inputLogin">
+            <label for="ritUsername">Username</label>
+            <input required="" id="ritUsername" name="j_username" title="RIT Account Username" placeholder="RIT Username" autocorrect="off" autocapitalize="none" value="">
+            <label for="ritPassword" class="passwordInput">Password</label>
+            <input required="" type="password" id="ritPassword" name="j_password" title="RIT Account Password" placeholder="Password">
+            <span class="loginButtons">
+              <span style="visibility:hidden">
+                <input name="donotcache" id="rememberMe" type="checkbox">
+                <label for="rememberMe">Save Password</label>
+              </span>
+              <button name="_eventId_proceed" type="submit" formaction="homepage.html">Login</button>
+            </span>
+            <div class="contactInfo">
+              <div class="authLinks">
+                <a href="https://start.rit.edu/ForgotUsername?source=shib" target="_blank">Forgot Username?</a> | <a href="https://start.rit.edu/ForgotPassword?source=shib" target="_blank">Forgot Password?</a>
+              </div>
+              <a class="changePassword" href="https://start.rit.edu/" target="_blank">Change Password</a>
+              <div>Need assistance? Please contact the RIT Service Center at</div>
+              <div>
+                <a href="tel:585-475-5000">585-475-5000</a> or visit <a href="https://help.rit.edu" target="_blank">help.rit.edu</a>
+              </div>
+            </div>
+          </div>
+  </body>
+</html>

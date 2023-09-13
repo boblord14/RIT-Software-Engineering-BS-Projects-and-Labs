@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIT Chat Room</title>
+    <link rel="stylesheet" href="../style2.css">
+</head>
+<body style="background-color:rgb(244, 218, 177);">
+    <a href="homepage.html">
+        <img src="../resources/homeButton.png" alt="home button" style="right:0%;top:0%;margin:15px 20px;position:absolute;">
+    </a>
+    <div class="container">
+        <div class="header">
+            <h1>RIT LAUNDRY CHAT</h1>
+        </div>
+        <div class="body">
+        <p style="color: black;">Trevor</p>
+        <p class="message">Hello</p>
+        <p class="message user_message">Hi</p>
+        <p style="color: black;" id="skuffed1"></p>
+        <p class="message user_message" id="message1" style="visibility: hidden">Test?</p>
+        <p style="color: black;" id="skuffed2"></p>
+        <p class="message user_message" id="message2" style="visibility: hidden">Test?</p>
+        <p style="color: black;" id="skuffed3"></p>
+        <p class="message user_message" id="message3" style="visibility: hidden">Test?</p>
+        </div>
+        <div class="footer">
+            <input class="dainput" type="text"  id="theBar">
+            <button class="dabutton" onclick="messageSend()">Send</button>
+        </div>
+    </div>
+    <script>
+        var sentHi = false;
+        var timeUntilSend = new Date().getTime() + 10 * 1000;
+        var x = setInterval(function() {
+            var distance = timeUntilSend - new Date().getTime();
+            if(distance <= 0 && !sentHi){
+                sentHi = true;
+                document.getElementById("skuffed"+currentMessage.toString()).innerHTML = "Ethan";
+                document.getElementById("skuffed"+currentMessage.toString()).style.visibility = "visible";
+                document.getElementById("message"+currentMessage.toString()).innerHTML = "Hi guys!";
+                document.getElementById("message"+currentMessage.toString()).className = "message";
+                document.getElementById("message"+currentMessage.toString()).style.visibility = "visible";
+                currentMessage++;
+            }
+
+        }, 50);
+        var currentMessage = 1;
+        var sentMessages = 0;
+        function messageSend() {
+            if (sentMessages != 2){
+                console.log(currentMessage);
+                console.log(currentMessage.toString());
+                document.getElementById("message"+currentMessage.toString()).innerHTML = document.getElementById("theBar").value;
+                document.getElementById("theBar").value = "";
+                document.getElementById("message"+currentMessage.toString()).style.visibility = "visible";
+                currentMessage++;
+                sentMessages++;
+            }
+            else{
+                alert("Too many messages, slow down!");
+            }
+        }
+        setInterval(function(){
+        },50);
+    </script>
+</body>
+</html>

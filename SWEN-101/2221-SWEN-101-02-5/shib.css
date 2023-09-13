@@ -1,0 +1,319 @@
+/*this is the stylesheet used by the rit login page. It was taken directly from the login page so it could be replicated perfectly for our purposes*/
+body {
+    margin: 0;
+    font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display:flex;
+    flex-direction: column;
+    min-height: -webkit-fill-available;
+    height: calc((var(--vh, 1vh) * 100) - 40px);
+    flex-grow: 1;
+    flex-basis: 100%;
+}
+
+.container {
+    height: calc(100vh - 40px);
+    margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+}
+a {
+    color: #c75300;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-transition: 0.25s ease-out;
+    -o-transition: 0.25s ease-out;
+    transition: 0.25s ease-out;
+}
+a:hover {
+    color: #000000;
+    -webkit-transition: 0.25s ease-in;
+    -o-transition: 0.25s ease-in;
+    transition: 0.25s ease-in;
+}
+a:active {
+    color: #727578;
+}
+.loginBox label {
+    margin-bottom: 3px;
+}
+input[type="checkbox"] {
+    cursor: pointer;
+}
+input[type="checkbox"]:checked {
+    accent-color: #f36e21;
+}
+input:not([type="checkbox"]) {
+    letter-spacing: 0;
+    padding: 10px 15px;
+    border: 1px solid #727568;
+    border-radius: 2px;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    outline: none;
+}
+
+input:-ms-input-placeholder:not([type="checkbox"]){
+    padding-left: 15px;
+    display:inline-block;
+}
+
+input:not([type="checkbox"]):focus {
+    border-color: #212529;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.error {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    text-align: center;
+}
+
+.ritLogo {
+    width:20%;
+    max-width: 20%;
+    height: 20%;
+    max-height: 90%;
+    margin: 1em auto;
+}
+
+.loginBox {
+    overflow: hidden;
+    border-radius: 5px;
+    min-width: 400px;
+    width: 50vmax;
+    max-width: 600px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-shadow: 0 1px 2px 0 rgb(0 0 0 / 12%), 0 2px 8px 0 rgb(0 0 0 / 24%);
+            box-shadow: 0 1px 8px 0 #000000, 0 2px 8px 0 #000000;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 12%), 0 2px 8px 0 rgb(0 0 0 / 24%);
+}
+
+.originalHeader img {
+    -ms-flex-item-align: center;
+        align-self: center;
+    cursor: pointer;
+}
+
+.originalHeader {
+    background: #f76902;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height:40px;
+}
+
+.originalHeader img{vertical-align: middle;}
+
+.originalHeader > a{
+    color: #FFF;
+    font-size: 14pt;
+}
+
+.originalHeader > a:hover{
+    color: #000000;
+}
+
+.originalHeader > a:active{
+    color: #727578;
+}
+
+.originalHeader input{
+    padding: 1px;
+    border-right-style: none;
+    border-radius: 2px 0 0 2px;
+    -webkit-border-radius: 2px 0 0 2px;
+    -moz-border-radius: 2px 0 0 2px;
+    -ms-border-radius: 2px 0 0 2px;
+    -o-border-radius: 2px 0 0 2px;
+}
+
+.originalHeader > form > span{
+    display: flex;
+    align-items: center;
+}
+
+.originalHeader > form > span > button{
+    height: fit-content;
+    border: 1px solid #727568;
+    border-left-style: none;
+    border-radius: 0 2px 2px 0;
+    -webkit-border-radius: 0 2px 2px 0;
+    -moz-border-radius: 0 2px 2px 0;
+    -ms-border-radius: 0 2px 2px 0;
+    -o-border-radius: 0 2px 2px 0;
+}
+
+.searchButton{
+    width: 16px;
+    height: 13px;
+    cursor: pointer;
+    text-indent: -9999px;
+    background: #FFF url('../images/idbar-orange-search-magnify.gif') no-repeat;
+    border: none;
+}
+
+.inputLogin, .loginExpired {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 0 1em 1em;
+}
+
+.passwordInput {
+    margin-top: 1em;
+    display:block;
+}
+.loginButtons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-top: 2em;
+}
+.inputLogin button {
+    background: #f76902;
+    border: 2px solid #f76902;
+    color: white;
+    padding: 10px 20px;
+    -webkit-transition: all ease-out 0.25s;
+    -o-transition: all ease-out 0.25s;
+    transition: all ease-out 0.25s;
+    font-weight: bold;
+    font-size: 14pt;
+}
+.inputLogin button:hover {
+    background: #000000;
+    border: 2px solid black;
+    -webkit-transition: all ease-in 0.25s;
+    -o-transition: all ease-in 0.25s;
+    transition: all ease-in 0.25s;
+    cursor: pointer;
+}
+.inputLogin img {
+    max-height: 300px;
+    height: auto;
+    max-width: 250px;
+    width: auto;
+    margin: auto;
+}
+
+.contactInfo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-top: 1em;
+}
+.contactInfo > * {
+    text-align: center;
+}
+.changePassword {
+    margin: 3px 0;
+}
+
+.authLinks{
+    gap:5px
+}
+
+@media screen and (max-width: 800px) {
+    .originalHeader > *:not(:first-child){
+        display: none;
+    }
+    .ritHeader img {
+        margin-left: -10px;
+    }
+    .loginBox {
+        width: 95vw;
+        min-width: auto;
+    }
+    .authLinks{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+}
+
+/* CSS Loader */
+.lds-dual-ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 6px solid #f76902;
+    border-color: #f76902 transparent #f76902 transparent;
+    -webkit-animation: lds-dual-ring 1.2s linear infinite;
+            animation: lds-dual-ring 1.2s linear infinite;
+}
+@-webkit-keyframes lds-dual-ring {
+    0% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+    }
+}
+@keyframes lds-dual-ring {
+    0% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+    }
+}
+

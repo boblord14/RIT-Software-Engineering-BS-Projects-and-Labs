@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+<title>RIT Laundry- Active Machines</title>
+<meta name="Rit Laundry" content="Active Machines Page">
+<style>
+::placeholder {
+  color: black;
+  text-align: center;
+  vertical-align: center;
+}
+
+    .loginButton {
+  background-color: #a8a8a8;
+  font-size: 24px;
+  border-radius: 4px;
+  color: rgb(0, 0, 0);
+  padding: 15px 32px;
+  border: 2px solid #585858;
+  transition-duration: 0.4s;
+  text-align: center;
+}
+.loginButton:hover {
+  background-color: #cacaca;
+  color: rgb(39, 38, 38);
+}
+.header{
+    font-size: 350%;
+    font-family: 'Courier';
+    font-weight: bolder;
+}
+.box{
+    position:relative;
+    width: 200px;
+    height: 150px;
+    margin: 35px;
+    border-radius: 50px;
+    padding-top: 50px;
+    border-color: black;
+    color: black;
+    font-size: 175%;
+    font-family: 'Courier';
+    font-weight: bolder;
+    resize: none;
+    text-align: center;
+    background-color: green;
+    
+}
+</style>
+</head>
+<body style="background-color:rgb(244, 218, 177);">
+    <a href="homepage.html">
+        <img src="../resources/homeButton.png" alt="home button" style="right:0%;top:0%;margin:15px 20px;position:absolute;">
+    </a>
+    <center>
+        <p class="header">Your Active Machines</p>
+        <textarea class="box" id="washer02" disabled ></textarea>
+        <textarea class="box" disabled id="washer18"></textarea>
+        <br><textarea class="box" style="background-color:green;" id = "dryer07" disabled></textarea>
+    </center>
+    
+    <p id="time"></p>
+    <script>
+        var timeGoalA = new Date().getTime() + 24 * 60 * 1000;
+        var x = setInterval(function() {
+            var distance = timeGoalA - new Date().getTime();
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            var ready = "";
+            if(distance <= 0){
+                minutes = 0;
+                seconds = 0;
+                ready = "Pick Up Now";
+                document.getElementById("washer02").style.backgroundColor = "red"
+            }
+            var minString = ""
+            var secString = ""
+            if (minutes < 10){minString='0'}
+            if (seconds < 10){secString='0'}
+            document.getElementById("washer02").innerHTML = 'Washer: 02 Time: ' + minString + minutes + ':' + secString + seconds +' ' + ready;
+
+        }, 50);
+        var timeGoalB = new Date().getTime() + .25 * 60 * 1000;
+        var z = setInterval(function() {
+            var distance = timeGoalB - new Date().getTime();
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            var ready = "";
+            if(distance <= 0){
+                minutes = 0;
+                seconds = 0;
+                ready = "Pick Up Now";
+                document.getElementById("washer18").style.backgroundColor = "red"
+            }
+            var minString = ""
+            var secString = ""
+            if (minutes < 10){minString='0'}
+            if (seconds < 10){secString='0'}
+            document.getElementById("washer18").innerHTML = 'Washer: 18 Time: ' + minString + minutes + ':' + secString + seconds +' ' + ready;
+
+        }, 50);
+        var timeGoalC = new Date().getTime() + 2.6 * 60 * 1000;
+        var y = setInterval(function() {
+            var distance = timeGoalC - new Date().getTime();
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            var ready = "";
+            if(distance <= 0){
+                minutes = 0;
+                seconds = 0;
+                ready = "Pick Up Now";
+                document.getElementById("dryer07").style.backgroundColor = "red"
+            }
+            var minString = ""
+            var secString = ""
+            if (minutes < 10){minString='0'}
+            if (seconds < 10){secString='0'}
+            document.getElementById("dryer07").innerHTML = 'Dryer: 07 Time: ' + minString + minutes + ':' + secString + seconds +' ' + ready;
+
+        }, 50);
+</script>
+</body>
+</html>

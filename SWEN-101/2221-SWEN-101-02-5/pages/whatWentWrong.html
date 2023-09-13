@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+        .submitButton {
+        background-color: #a8a8a8;
+        font-size: 24px;
+        border-radius: 4px;
+        color: rgb(0, 0, 0);
+        padding: 15px 32px;
+        border: 2px solid #585858;
+        transition-duration: 0.4s;
+        text-align: center;
+        margin: 25px 0px;
+        position: absolute;
+        right:15%;
+}
+    .submitButton:hover {
+        background-color: #cacaca;
+        color: rgb(39, 38, 38);
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .textarea {
+        height:300px;
+        width:70%;
+        font-size: 200%;
+        resize: none;
+        font-family: 'Courier';
+    }
+    .text {
+        font-size: 200%;
+        font-family: 'Courier';
+        font-weight: bolder;
+    }
+    .dropdown {
+        font-size: 150%;
+        font-family: 'Courier';
+    }
+    .popup {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .popuptext {
+        visibility: hidden;
+        background-color: #555;
+        width: 60%;
+        height: 125px;
+        text-align: center;
+        vertical-align: middle;
+        font-family: 'Courier';
+        font-size: 300%;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        border: black solid 4px;
+        padding: 8px 0;
+        position: absolute;
+        left: 50%;
+        padding-top: 75px;
+        transform: translate(-50%, -130%);
+    }
+    .header{
+        font-size: 250%;
+        font-family: 'Courier';
+        font-weight: bolder;
+    }
+    </style>
+    <title>RIT Laundry- What Went Wrong</title>
+    <meta name="Rit Laundry" content="What Went Wrong">
+</head>
+<body style="background-color:rgb(244, 218, 177);" >
+    <a href="homepage.html">
+        <img src="../resources/homeButton.png" alt="home button" style="right:0%;top:0%;margin:15px 20px;position:absolute;">
+    </a>
+    <center>
+        <p class="header">Report An Issue</p>
+        <label for="problems" class="text" >What Went Wrong:</label>
+        <select name="problems" class="dropdown" id="problems">
+            <option value="washingMachineBroke">Washing Machine Broke</option>
+            <option value="dryerBroke">Dryer Broke</option>
+            <option value="appBroke">App Broke</option>
+            <option value="other">Other</option>
+        </select>
+        <text>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</text>
+        <label for="locations" class="text">Location:</label>
+        <select name="locations" class="dropdown" id="'locations">
+            <option value="Sol">Sol Laundry Room</option>
+            <option value="NRH">Gleason Laundry Room</option>
+            <option value="Ellington">Gibson Laundry Room</option>
+            <option value="Gleason">Peterson Laundry Room</option>
+        </select>
+    </center>
+    <br>
+    <br>
+    <br>
+    <center>
+        <textarea name="problemTextarea" class="textarea"placeholder="Enter your issue here..."  id="textareaa"></textarea>
+    </center>
+        <button class="button submitButton" onclick="showPopup()">Submit</button>
+        <span class="popuptext" id="myPopup">Submission Succsessful</span>
+        <span class="popuptext" id="error">Please Describe Your Issue</span>
+    <script>
+        // When the user clicks on div, open the popup
+        var bad = true;
+        var good = true;
+        function showPopup() {
+            if(document.getElementById("textareaa").value == ''){
+                document.getElementById("error").style.visibility = "visible";
+                bad = false;
+            }
+            else{
+                document.getElementById("textareaa").value = '';
+                document.getElementById("myPopup").style.visibility = "visible";
+                good = false;
+            }
+        }
+        function hidePopup() {  
+            if (good){
+                document.getElementById("myPopup").style.visibility = "hidden";
+            }
+            else{good=true;}
+            if (bad){
+                document.getElementById("error").style.visibility = "hidden";
+            }
+            else{bad = true;}
+        }
+        window.onclick = hidePopup;
+    </script>
+</body>
+</html>

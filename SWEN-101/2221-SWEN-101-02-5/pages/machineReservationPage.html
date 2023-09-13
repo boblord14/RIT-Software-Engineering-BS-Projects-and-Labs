@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+        .submitButton {
+        background-color: lightgray;
+        font-size: 24px;
+        font-family: 'Courier';
+        font-weight: bolder;
+        border-radius: 8px;
+        color: rgb(0, 0, 0);
+        border: black solid 4px;
+        transition-duration: 0.4s;
+        text-align: center;
+        margin: 25px;
+        position: absolute;
+        right: 0%;
+        width: 150px;
+        height: 65px;
+}
+    .submitButton:hover {
+        background-color: gray!important;
+        cursor: pointer;
+    }
+    .textarea {
+        height:300px;
+        width:70%;
+        font-size: 200%;
+        resize: none;
+        font-family: 'Courier';
+    }
+    .text {
+        font-size: 200%;
+        font-family: 'Courier';
+        font-weight: bolder;
+    }
+    .dropdown {
+        overflow: auto;
+        font-size: 150%;
+        font-family: 'Courier';
+    }
+    .time {
+        width: 50px;
+        font-size: 150%;
+        font-family: 'Courier';
+    }
+    .popup {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .popuptext {
+        visibility: hidden;
+        background-color: #555;
+        width: 60%;
+        height: 125px;
+        text-align: center;
+        vertical-align: middle;
+        font-family: 'Courier';
+        font-size: 300%;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px 0;
+        position: absolute;
+        left: 50%;
+        padding-top: 75px;
+        transform: translate(-50%, -130%);
+    }
+    .header{
+        font-size: 250%;
+        font-family: 'Courier';
+        font-weight: bolder;
+    }
+    .washdrybutton { 
+        background-color: lightgray;
+        border: black solid 4px;
+        font-size: 250%;
+        width: 20%;
+        height: 200px;
+        font-family: 'Courier';
+        font-weight: bolder;
+        border-radius: 34px;
+        margin: 50px;
+        cursor: pointer;
+    }
+    .washdrybutton:hover{
+        background-color: gray!important;
+        transition: 0.2s ease;
+    }
+    </style>
+    <title>RIT Laundry- Machine Reservation</title>
+    <meta name="Rit Laundry" content="Machine Reservation">
+</head>
+<body style="background-color:rgb(244, 218, 177);" >
+    <a href="homepage.html">
+        <img src="../resources/homeButton.png" alt="home button" style="right:0%;top:0%;margin:15px 20px;position:absolute;">
+    </a>
+    <center>
+        <p class="header">Reserve A Machine</p>
+        <label for="locations" class="text">Location:</label>
+        <select name="locations" class="dropdown" id="'locations">
+            <option value="Sol">Sol Laundry Room</option>
+            <option value="NRH">NRH Laundry Room</option>
+            <option value="Ellington">Ellington Laundry Room</option>
+            <option value="Gleason">Gleason Laundry Room</option>
+        </select>
+        <text>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</text>
+        <label for="date" class="text">Date:</label>
+        <input type="date" id="datePicker" style="width: 200px;font-weight: normal;font-size: 150%;font-family: 'Courier';" onchange="update()">
+        <text>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</text>
+        <label for="hours" class="text">Time:</label>
+        <input type="number" id="hourss" min="1" max="12" name="hours" class="time" onchange="enforceMinMax(this)">
+        <label for="minutes" class="text">:</label>
+        <input type="number" id="minutess" min="0" max="59" name="minutes" class="time" onchange="enforceMinMax(this)">
+        <select name="locations" class="dropdown" id="morningg">
+            <option value="AM">AM</option>
+            <option value="PM">PM</option>
+        </select>
+    </center>
+    <center>
+        <button class="washdrybutton" id="washButton" onclick="select('wash')">Washer</button>
+        <button class="washdrybutton" id="dryButton" onclick="select('dry')">Dryer</button>
+    </center>
+    <br>
+    <br>
+    <br>
+    <div>
+        <label for="hi" id="orange" class="text" style="margin-top: 50px;position: absolute;width: calc(100% - 200px);text-align: center;">Please Select Machine Type</label>
+        <button name="hi" class="button submitButton" onclick="submit()" id="theButton">Submit</button>
+    </div>
+    <span class="popuptext" id="error" >Machine Succsessfuly Reserved</span>
+    <script>
+        // When the user clicks on div, open the popup
+        document.getElementById('datePicker').valueAsDate = new Date();
+        
+        document.getElementById('hourss').value = new Date().getHours();
+        document.getElementById('minutess').value = new Date().getMinutes()+1;
+        var popup = true;
+        var washOrDry = "None";
+        var good=false;
+        function select(which) {
+            washOrDry = which
+            var other = "wash";
+            if (which == "wash"){
+                other = "dry";
+            }
+            document.getElementById(which+"Button").style.backgroundColor = "gray";
+            document.getElementById(other+"Button").style.backgroundColor = "lightgray";
+        }
+        function submit() {
+            if(good){
+                document.getElementById("error").style.visibility = "visible"
+                popup = false;
+            }
+        }
+        function hidePopup() {  
+            document.getElementById("myPopup").style.visibility = "hidden"
+            document.getElementById("error").style.visibility = "hidden"
+        }
+        function enforceMinMax(el) {
+            if (el.value != "") {
+                if (parseInt(el.value) < parseInt(el.min)) {
+                el.value = el.min;
+                }
+                if (parseInt(el.value) > parseInt(el.max)) {
+                el.value = el.max;
+                }
+            }
+        }
+        function updateSubmit(nameHere) {
+            if (nameHere){
+                document.getElementById("theButton").style.backgroundColor = "lightgray";
+                document.getElementById("theButton").style.cursor = "pointer";
+            }
+            else{
+                document.getElementById("theButton").style.backgroundColor = "gray";
+                document.getElementById("theButton").style.cursor = "default";
+            }
+        }
+        window.onclick = update;
+        function update(){
+            if (popup){
+                document.getElementById("error").style.visibility = "hidden";
+            }
+            else{popup=true;}
+            var currentDate = new Date();
+            var datePick = document.getElementById("datePicker").value;
+            var morning = 0;
+            if (document.getElementById("morningg").value == "PM"){morning = 1;}
+            var selectedDate = new Date(Date.UTC(datePick.substr(0,4),datePick.substr(5,2)-1,datePick.substr(8,2),(+document.getElementById("hourss").value + (12*morning)),document.getElementById("minutess").value))
+            good = false;
+            if (washOrDry != "None"){
+                if (((selectedDate.getTime() + (5 * 60 *60 * 1000)) < currentDate)){
+                    document.getElementById("orange").innerHTML = "Please Select A Date In The Future";
+                    updateSubmit(false);
+                }
+                else if ((selectedDate.getTime() + (5 * 60 *60 * 1000)) > (currentDate.getTime() + (3 * 24 * 60 * 60 * 1000))){
+                    document.getElementById("orange").innerHTML = "Can Only Reserve A Machine Three Days Prior";
+                    updateSubmit(false);
+                }
+                else {
+                    var machine = "Washer 04";
+                    if (washOrDry == 'dry'){machine="Dryer 07";}
+                    document.getElementById("orange").innerHTML = "You Will Be Given "+machine;
+                    updateSubmit(true);
+                    good = true;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
