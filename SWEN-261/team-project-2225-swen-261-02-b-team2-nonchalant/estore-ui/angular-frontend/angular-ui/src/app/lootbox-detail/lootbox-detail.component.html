@@ -1,0 +1,80 @@
+<a >
+    <div *ngIf="lootbox" class = "lootbox-details">
+    
+      <h2>{{lootbox.name | uppercase}}  LOOTBOX Details</h2>
+      <img src={{getImage()}}>
+      <br>
+    
+      <div>
+        <label for="lootbox-name">Lootbox name: </label>
+        <input *ngIf="x.isAdmin()" id="lootbox-name" [(ngModel)]="lootbox.name" placeholder="Lootbox name"/>
+        <label *ngIf="!x.isAdmin()"> {{lootbox.name}} </label>
+    
+        <br>
+        <label for="lootbox-price">Lootbox price: </label>
+        <input *ngIf="x.isAdmin()" id="lootbox-price" [(ngModel)]="lootbox.price" placeholder="Lootbox price"/>
+        <label *ngIf="!x.isAdmin()"> ${{lootbox.price}} </label>
+        <br>
+        <label *ngIf="x.isAdmin()" for="lootbox-image">Lootbox image address: </label>
+        <input *ngIf="x.isAdmin()" id="lootbox-image" [(ngModel)]="lootbox.image" placeholder="Lootbox image address"/>
+      </div>
+    
+        
+      <div  id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+          <div class="modal-body">
+            <div class="modal-image">
+              <img *ngIf="showgif" src="https://cdna.artstation.com/p/assets/images/images/033/921/158/original/peter-vechkasov-lootbox.gif?1610923783" />
+            </div>
+            <div class="modal-text">
+              <h1>YOU WON:</h1>
+              <ul class="wonitems">
+                <p *ngIf="wonitems.length==0">No won items.</p>
+                <li *ngFor="let items of wonitems">
+                  <b class="wonitems">        
+                    <span class="badge"></span>{{items.name}}
+                  </b>
+              
+                </li>
+              </ul>
+              <p>Congratulations! Your won items are worth a total of ${{dollaramountwon}}!<br>
+                Your items have been added to your cart with a fully discounted price ($0).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+ 
+
+<div *ngIf="x.isAdmin()">
+  <label for="new-price" >Lootbox prize pool: </label>
+
+    <form action="/action_page.php">
+
+    <ul class="products">
+        <p *ngIf="products.length==0">No products.</p>
+        <li *ngFor="let product of products">
+          <a >
+            <input class = "product" type="checkbox"  (click) = "getCheckedProductIds()" id={{product.id}} name="{{product.name}}" value={{product}} [checked]="inPool(product.id)">
+
+            <span class="badge"></span> {{product.name}} (${{product.price}})
+          </a>
+      
+        </li>
+      </ul>
+    </form>
+
+</div>
+
+
+<button type="button" (click)="goBack()">go back</button>
+<button *ngIf="!x.isReserved() && lootbox.pool.length > 0" type="button" (click) ="areYouSure()">buy</button>
+<a *ngIf="lootbox.pool.length == 0 && !x.isAdmin()"><br>Not avaliable for purchase. (No winnable items in prize pool)</a>
+
+
+          <button *ngIf="x.isAdmin()" type="button" (click)="save()">save 🖫</button>
+    
+    </div>
+    </a>

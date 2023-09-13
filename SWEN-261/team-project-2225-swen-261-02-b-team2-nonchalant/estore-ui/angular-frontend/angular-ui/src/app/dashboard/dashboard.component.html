@@ -1,0 +1,24 @@
+<body>
+  <div class="image-container">
+    <img class="main" src="https://i.imgur.com/dpSVkHZ.jpeg" width="100%">
+    <nav>
+      <button (click)="changeBackground()" routerLink="/login">Log Out</button>
+      <button routerLink="/products">Products</button>
+      <button routerLink="/lootboxes">Lootboxes</button>
+      <button routerLink="/jersey-maker">Custom Jerseys</button>
+      <button *ngIf="!isReserved()" routerLink="/shopping-cart">Shopping Cart 🛒</button>
+      <button *ngIf="isAdmin()" routerLink="/users">User List</button>
+    </nav>
+  </div>
+
+  <h2>Featured Products</h2>
+  <div class="products-menu">
+    <a *ngFor="let product of products" routerLink="/detail/{{product.id}}">
+      <img class='tile' src={{product.image}}>
+      <br>
+      {{product.name}} (${{product.price}})
+    </a>
+  </div>
+  <app-product-search></app-product-search>
+</body>
+

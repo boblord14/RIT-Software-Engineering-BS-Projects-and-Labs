@@ -1,0 +1,56 @@
+<div *ngIf="showRecipt==true" class="popup">
+    <h1>Checkout Recipt</h1>
+    <br>
+    <li *ngFor="let product of reciptCopy">
+        ({{product.quantity}}) {{product.name}}, ${{product.price * product.quantity}}
+    </li>
+    <li *ngFor="let jersey of jersyReciptCopy">
+        Custom Jersey: <br>Name:{{jersey.name}}, Number: {{jersey.number}}, {{jersey.primary_color}} & {{jersey.secondary_color}}, ${{jersey.price}}
+    </li>
+    <p>Your total was: ${{this.checkoutTotal}}</p>
+    <button type="confirm" (click)="confirmCheckout()">Confirm</button>
+</div>
+<div>
+    <h1>Shopping Cart</h1>
+    <ul>
+        <h2 *ngIf="(cart.length<1) && (jerseys.length<1)">Your cart is empty.</h2>
+        <li *ngFor="let product of cart">
+            <a>
+            <img src={{product.image}}>
+            <br>
+            {{product.name}}
+            <br>
+            Price: ${{product.price}}
+            <br>
+            Number in cart: {{product.quantity}}
+            <button type="button" class = "delete" (click)="removeOneFromCart(product)"> -1 </button>
+            <button type="button" class = "delete" (click)="removeAllFromCart(product)">🗑</button>
+            </a>
+        </li>
+    </ul>
+    <br>
+    <h2 *ngIf="this.jerseys.length>0">Custom Orders</h2>
+    <ul>
+        <li *ngFor="let jersey of jerseys">
+            <a>
+            <img src={{jersey.logo}}>
+            <br>
+            {{jersey.name}}
+            <br>
+            Price: ${{jersey.price}}
+            <br>
+            Jersey Number: {{jersey.number}}
+            <br>
+            Colors: {{jersey.primary_color}} & {{jersey.secondary_color}}
+            <button type="button" class = "delete" (click)="removeJerseyFromCart3(jersey)">🗑</button>
+            </a>
+        </li>
+    </ul>
+    <h2>
+      Cart total: ${{getCartTotal()}}
+    </h2>
+    <button *ngIf="(cart.length!=0) || (jerseys.length!=0)" type="checkout" (click)="areYouSure()">Checkout</button>
+</div>
+
+<button type="button" (click)="goBack()">go back</button>
+

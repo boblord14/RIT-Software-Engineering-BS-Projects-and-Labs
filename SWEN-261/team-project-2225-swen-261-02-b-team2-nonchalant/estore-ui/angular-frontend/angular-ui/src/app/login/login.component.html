@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+  </head>
+  <div>
+    <h1>Login</h1>
+    <input placeholder="username" autocomplete="off" id="username" #searchBox (input)="search(searchBox.value)" /><br /><br />
+
+<button (click)="login(searchBox.value)">Login</button>
+<button (click)="addUser(searchBox.value)">Add New User "{{searchBox.value}}"</button>
+<button (click)="loginAsGuest()">Login as a Guest</button>
+
+<br /><br />
+<b>{{loginMessage}}</b>
+<b>{{currentuser.name}}</b>
+  </div>
+</html>

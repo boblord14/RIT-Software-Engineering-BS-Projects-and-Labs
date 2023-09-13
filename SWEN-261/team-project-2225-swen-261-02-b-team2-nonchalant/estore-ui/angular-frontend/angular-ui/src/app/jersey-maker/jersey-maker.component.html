@@ -1,0 +1,50 @@
+<nav>
+    <a1 routerLink="/login">Login</a1>
+    <a1 routerLink="/dashboard">Dashboard</a1>
+    <br>
+    <br>
+</nav>
+<div>
+    <a class = "imagecontainer" >
+        <app-jersey-image [displayed_jersey]="current_jersey"></app-jersey-image>
+    </a>
+    <div class = "formcontainer">
+        <form>
+            <label for="primary-color">Primary Color: </label>
+            <select id="primary-color">
+                <option value="red">red</option>  
+                <option value="orange">orange</option>  
+                <option value="yellow">yellow</option>
+                <option value="green">green</option>
+                <option value="blue">blue</option>
+                <option value="purple">purple</option>
+                <option value="pink">pink</option>
+                <option value="black">black</option>
+            </select><br>
+            <label for="secondary-color">Secondary Color: </label>
+            <select id="secondary-color">
+                <option value="red">red</option>  
+                <option value="orange">orange</option>  
+                <option value="yellow">yellow</option>
+                <option value="green">green</option>
+                <option value="blue">blue</option>
+                <option value="purple">purple</option>
+                <option value="pink">pink</option>
+                <option value="black">black</option>
+            </select><br>
+            <label for="jersey-name">Name: </label>
+            <input id="jersey-name" type="text" maxlength="10" /><br>
+            <label for="jersey-number">Number: </label>
+            <input id="jersey-number" type="number" min="0" max="99" /><br>
+            <label for="jersey-logo">Logo URL: </label>
+            <input id="jersey-logo" /><br>
+            Current price is ${{jersey_pricing}}
+            <br>
+            <button type="button" (click)="setCurrentJersey()">View</button>
+            <button type="button" (click)="confirmJersey()">Add to Cart</button>
+
+        </form>
+       
+
+    </div>
+</div>

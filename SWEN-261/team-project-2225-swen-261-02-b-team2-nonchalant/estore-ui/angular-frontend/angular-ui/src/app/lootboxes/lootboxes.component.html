@@ -1,0 +1,42 @@
+<nav>
+  <br>
+  <a1 routerLink="/login">Login</a1>
+  <a1 routerLink="/dashboard">Dashboard</a1>
+  
+  <br>
+<h2>LOOTBOX INVENTORY</h2>
+</nav>
+<div *ngIf="x.isAdmin()">
+  <br>
+  <label for="new-lootbox">Lootbox name: </label>
+  <input id="new-lootbox" #lootboxName />
+  <br>
+  <label for="new-price">Lootbox price: </label>
+  <input type = number id="new-price" #lootboxPrice />
+
+<br>
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(lootboxName.value, lootboxPrice.valueAsNumber); 
+  lootboxName.value=''; lootboxPrice.value=''; ">
+    Add lootbox
+  </button>
+
+</div>
+
+<ul class="lootboxes">
+  <p *ngIf="lootboxes.length==0">No lootboxes.</p>
+  <a  *ngFor="let lootbox of lootboxes" >
+    <img routerLink="/lootboxdetail/{{lootbox.id}}" class='tile' src={{lootbox.image}}>
+    <br>
+    {{lootbox.name}} (${{lootbox.price}})
+    <br>
+
+
+    <button *ngIf="x.isAdmin()" type="button" class="delete" title="delete lootbox"
+      (click)="delete(lootbox)">DELETE 🗑</button>
+
+    </a>
+
+</ul>
+

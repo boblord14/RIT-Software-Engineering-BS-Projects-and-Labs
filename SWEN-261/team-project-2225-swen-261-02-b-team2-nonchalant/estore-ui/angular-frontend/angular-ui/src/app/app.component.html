@@ -1,0 +1,20 @@
+<a></a>
+<div class="heading-bar">
+<h1>{{title}}</h1>
+<nav>
+    <button *ngIf="show()" routerLink="/login">Log Out</button>
+    <button *ngIf="show()" routerLink="/dashboard">Dashboard</button>
+
+    <button *ngIf="show()" routerLink="/products">Products</button>
+    <button *ngIf="show()" routerLink="/lootboxes">Lootboxes</button>
+    <button *ngIf="!isReserved()&&show()" routerLink="/jersey-maker">Custom Jerseys</button>
+
+    <button *ngIf="!isReserved()&&show()" routerLink="/shopping-cart">Shopping Cart 🛒</button>
+    <button *ngIf="isAdmin()&&show()" routerLink="/users">User List</button>
+  </nav>
+<label *ngIf="show()" >Logged in as {{getCurrentUser()}}</label>
+
+</div>
+
+<router-outlet></router-outlet>
+<!--<app-messages></app-messages>--->

@@ -1,0 +1,37 @@
+<div>
+    <h1 *ngIf="user"> {{user.name}}'s Shopping Cart</h1>
+    <ul>
+        <p *ngIf="user && (user.cart.length<1) && (jerseys.length<1)  ">{{user.name}}'s cart is empty.</p>
+        <li *ngFor="let product of user?.cart">
+            <a>
+            <img src={{product.image}}>
+            <br>
+            {{product.name}}
+            <br>
+            Price: ${{product.price}}
+            <br>
+            Number in cart: {{product.quantity}}
+            <button type="button" class = "delete" (click)="removeAll(product)">🗑</button>
+            </a>
+        </li>
+        
+    </ul>
+    <h2 *ngIf="this.jerseys.length>0">Custom Orders</h2>
+    <ul>
+        <li *ngFor="let jersey of jerseys">
+            <a>
+            <img src={{jersey.logo}}>
+            <br>
+            {{jersey.name}}
+            <br>
+            Price: ${{jersey.price}}
+            <br>
+            Jersey Number: {{jersey.number}}
+            <br>
+            Colors: {{jersey.primary_color}} & {{jersey.secondary_color}}
+            </a>
+        </li>
+    </ul>
+</div>
+<button type="button" (click)="goBack()">go back</button>
+

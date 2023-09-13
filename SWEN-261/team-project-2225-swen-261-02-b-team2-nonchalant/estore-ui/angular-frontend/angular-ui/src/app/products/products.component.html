@@ -1,0 +1,57 @@
+<nav>
+  <br>
+  <a1 routerLink="/login">Login</a1>
+  <a1 routerLink="/dashboard">Dashboard</a1>
+  
+
+</nav>
+<h2>PRODUCT INVENTORY</h2>
+<br>
+<div *ngIf="x.isAdmin()">
+  <br>
+  <h3> Add New Product: </h3>
+  <label for="new-product">Product name: </label>
+  <input id="new-product" #productName />
+  <br>
+  <label for="new-price">Product price: </label>
+  <input type = number id="new-price" #productPrice />
+  <br>
+  <label for="new-quantity">Product quantity: </label>
+  <input type = number id="new-quantity" #productQuantity />
+  <br>
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(productName.value, productPrice.valueAsNumber, productQuantity.valueAsNumber); 
+  productName.value=''; productPrice.value=''; productQuantity.value=''">
+    Add product
+  </button>
+  <br>
+</div>
+<br>
+<ul class="products">
+  <p *ngIf="products.length==0">No products.</p>
+  <a *ngFor="let product of products" >
+    <img routerLink="/detail/{{product.id}}" class='tile' src={{product.image}}>
+    <br>
+    {{product.name}} (${{product.price}})
+    <br>
+
+
+    <button *ngIf="x.isAdmin()" type="button" class="delete" title="delete product"
+      (click)="delete(product)">DELETE 🗑</button>
+    <button *ngIf="!x.isReserved()" type="button" class="addtocart" title="Add to cart"
+      (click)="addToCart(product)">Add to cart</button>
+    </a>
+<app-add-to-cart-popup-component *ngIf="showPopup"></app-add-to-cart-popup-component>
+</ul>
+<div *ngIf="x.isAdmin()">
+  <label for="new-quantity">Custom Jersey Price (Current price is ${{adminjersey?.price}}): </label>
+  <input type = number id="new-quantity" #productQuantity />
+  <br>
+ 
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="updatePrice(productQuantity.valueAsNumber)">
+    Change Price
+  </button>
+</div>

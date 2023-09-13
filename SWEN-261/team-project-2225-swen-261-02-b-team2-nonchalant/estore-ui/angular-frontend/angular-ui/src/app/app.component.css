@@ -1,0 +1,61 @@
+/* Application-wide Styles */
+
+/* Style for the heading bar */
+
+h1 {
+  
+    color: rgb(255, 255, 255);
+    font-family: Marker Felt, fantasy;
+    font-size: 200%;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    font-weight: 10;
+  }
+  h2, h3 {
+    color: #444;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+  }
+  body {
+    margin: 2em;
+  }
+  body, input[type="text"], button {
+    color: #333;
+    font-family: Cambria, Georgia, serif;
+  }
+  button {
+    background-color: #fdfdfd;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+  
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  button:hover {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background-color: hsl(220, 2%, 75%);
+    transform: scale(1.05);
+  
+  }
+  
+  /* everywhere else */
+  * {
+
+    
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  label{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 150%;
+  }
+
+  

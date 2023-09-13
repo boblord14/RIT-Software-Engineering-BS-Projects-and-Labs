@@ -1,0 +1,38 @@
+.primary-color-img {
+    position: absolute; 
+    max-height: 300px;
+}
+
+.secondary-color-img {
+    position: absolute;
+    max-height: 300px; 
+}
+
+.logo-img {
+    position: absolute; 
+    max-height: 100px; 
+    max-width:  100px;
+    left: 50%; 
+    top: 50%;  
+    transform: translate(-50%, -50%)
+}
+
+.name-txt {
+    font-size: 30px; 
+    color: white; 
+    position: absolute;
+    left: 50%; 
+    top: 30%;
+    margin: 0; 
+    transform: translate(-50%, 0%);
+}
+
+.number-txt {
+    font-size: 60px; 
+    color: white;
+    position: absolute; 
+    left: 50%; 
+    top: 50%; 
+    margin: 0;
+    transform: translate(-52%, -45%);
+}

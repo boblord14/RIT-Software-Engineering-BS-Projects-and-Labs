@@ -1,0 +1,26 @@
+     <nav>
+        <a1 routerLink="/login">Login</a1>
+        <a1 routerLink="/dashboard">Dashboard</a1>    
+      </nav>
+      <div *ngIf="x.isReserved()"> 
+
+      <div *ngIf="x.isReserved()">
+        <br>
+        <label for="new-user">User name: </label>
+        <input id="new-user" #userName />
+        <br>
+        <!-- (click) passes input value to add() and then clears the input -->
+        <button type="button" class="add-button" (click)="add(userName.value); 
+        userName.value=''; ">
+          Add user
+        </button>
+        <b>&emsp;{{userMessage}}</b>
+      </div>
+      <ul class="users">
+        <li *ngFor="let user of users" routerLink="/userdetail/{{user.id}}">
+          <span class="badge">{{user.id}}</span> {{user.name}}
+          <button *ngIf="x.isReserved()" type="button" class="delete" title="delete user"
+            (click)="delete(user)">DELETE</button>
+        </li>
+      </ul>
+</div>

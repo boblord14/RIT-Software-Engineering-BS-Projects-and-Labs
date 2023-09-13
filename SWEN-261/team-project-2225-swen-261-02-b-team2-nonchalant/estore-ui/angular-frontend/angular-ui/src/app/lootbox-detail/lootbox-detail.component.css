@@ -1,0 +1,179 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    color: #2d2e30;
+
+  }
+  
+  label {
+    font-weight: bold;
+    font-size: 25px;
+    color: #fffffa;
+
+  }
+  
+  input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px 0;
+  }
+  
+  button {
+    font-size: 20px;
+  
+    background-color: #fffffa;
+    color: #2d2e30;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: all .03s ease-in-out;
+  }
+  
+  button:hover {
+    transform: scale(1.08);
+    background-color: rgb(191, 193, 196);
+  }
+  
+  .delete {
+    background-color: #f44336;
+  }
+  
+  .delete:hover {
+    background-color: #da190b;
+  }
+  
+  h2 {
+    font-size: 40px;
+    font-weight: bold;
+    color: #fffffa;
+    margin: 20px 0;
+  }
+  
+  div {
+    background-color: #2d2e30;
+    margin-bottom: 20px;
+    color: #fffffa;
+
+  }
+  
+  img{
+    width: 25%;
+    height: 25%;
+    border-radius: 15px;
+    border: 5px solid #2d2e30;
+  }
+  
+  span {
+    font-weight: bold;
+    color: #333;
+  }
+  body {
+    background-image: url("https://artsmidnorthcoast.com/wp-content/uploads/2014/05/no-image-available-icon-6.png");
+    background-size: 10%;
+    margin-bottom: 0px;
+  }
+  
+  #lootbox-name,
+  #lootbox-price,
+  #lootbox-quantity {
+    width: 200px;
+  }
+  
+  
+  .lootbox-details {
+
+    margin: auto;
+    margin-top: 9%;
+    margin-left: 26%;
+    margin-right: 10%;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: auto;
+    padding: 10px;
+    border: 5px solid #2d2e30;
+    border-radius: 15px;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    z-index: 9999;
+  }
+  
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-body {
+    background-color: #fffffa;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    z-index: 9999;
+  }
+  .modal-image {
+    background-color: #fffffa;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal-image img {
+    width: auto;
+    height: auto;
+  }
+  .modal-text {
+    background-color: #fffffa;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  a{
+    font-size: 20px;
+    color: #fffffa;
+  }
+
+  .wonitem{
+    color: #2d2e30;
+
+  }
+  
+  span{
+    color: #fffffa;
+
+  }

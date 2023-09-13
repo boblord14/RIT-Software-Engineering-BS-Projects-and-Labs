@@ -1,0 +1,34 @@
+<a >
+<div *ngIf="product" class = "product-details">
+
+  <h2>{{product.name | uppercase}} Details</h2>
+  <img src={{getImage()}}>
+  <br>
+  <br>
+
+  <div>
+    <label for="product-name">Product name: </label>
+    <input *ngIf="x.isAdmin()" id="product-name" [(ngModel)]="product.name" placeholder="Product name"/>
+    <label *ngIf="!x.isAdmin()"> {{product.name}} </label>
+
+    <br>
+    <label for="product-price">Product price: </label>
+    <input *ngIf="x.isAdmin()" id="product-price" [(ngModel)]="product.price" placeholder="Product price"/>
+    <label *ngIf="!x.isAdmin()"> ${{product.price}} </label>
+    <br>
+    <label for="product-quantity">Product quantity: </label>
+    <input *ngIf="x.isAdmin()" id="product-quantity" [(ngModel)]="product.quantity" placeholder="Product quantity"/>
+    <label *ngIf="!x.isAdmin()"> {{product.quantity}} </label>
+<br>
+    <label *ngIf="x.isAdmin()" for="product-image">Product image address: </label>
+    <input *ngIf="x.isAdmin()" id="product-image" [(ngModel)]="product.image" placeholder="Product image address"/>
+  </div>
+  <button type="button" (click)="goBack()">go back</button>
+  <button *ngIf="!x.isReserved() && product.quantity > 0" type="button" title="Add to cart"
+      (click)="addToCart(product)">Add to cart</button>
+      <button *ngIf="x.isAdmin()" type="button" (click)="save()">save 🖫</button>
+
+</div>
+<app-add-to-cart-popup-component *ngIf="showPopup"></app-add-to-cart-popup-component>
+
+</a>
