@@ -1,0 +1,28 @@
+Activity Journal- C Debug Part 2
+Ethan Patterson
+
+Initial Observations:
+
+Estimated time to completion- 45mins
+
+Plan-
+ This program still isn't made properly, isn't it?
+
+First step would be getting this thing running how it should be. 
+
+After thats all nice and good then I can go back through and refactor it into the proper formatting where it isn't following that. 
+
+
+---------------
+
+Completion:
+
+Actual time- 1 hour
+
+Remarks-
+
+Killed some more bugs and gave it some fresh documentation. 
+
+Super big input numbers in the thousands will segfault it, dont know an easy solution to that yet. I did up the size of the prime array from 15 to 1028 to hopefully give it some more wiggle room when it comes to that. 
+
+Not the worst to do. The "coding standards" part felt a tad vague but I tried my best to do them by what I could find. 

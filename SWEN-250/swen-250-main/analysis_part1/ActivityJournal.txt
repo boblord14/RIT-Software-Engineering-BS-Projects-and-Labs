@@ -1,0 +1,92 @@
+SWEN-250 Document Analysis Journal
+
+Implement these functions in the order below.
+
+Your name: Ethan Patterson
+
+================================================================
+create_node
+Start
+Estimated Time	1H 0M
+Plan:
+(Order of implementation, testing approach, etc.)
+figure out the struct and memalloc shenanigans and how they work together with pointers
+
+should fall into place from there
+
+Complete
+Actual Time	1H 30M
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+minor skill issue with using sizeof(string) instead of strlen(string) for malloc screwing me up
+
+================================================================
+add_node_at_head
+Start
+Estimated Time	1H 0M
+Plan:
+(Order of implementation, testing approach, etc.)
+barring any dumb shenanigans where im sitting there for an hour until i realize i mistyped a single thing, shouldnt
+be harder than the previous one
+
+Complete
+Actual Time	30H 0M
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+understanding the whole project more, pointer shenanigans coming really easy to me now
+
+================================================================
+clear_linked_list
+Start
+Estimated Time	0H 20M
+Plan:
+(Order of implementation, testing approach, etc.)
+find a smooth way to iterate over the whole list and this is basically finished
+
+Complete
+Actual Time	HH 10M
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+took a bit of thinking to get the while loop perfected but it just works
+
+================================================================
+add_node_after_current
+Start
+Estimated Time	0H 45M
+Plan:
+(Order of implementation, testing approach, etc.)
+toning down my time estimates now that im working smoothly.
+pretty similar to some of the other work i did, might be really really easy if copy pasting with a few renames here
+and there works out.
+
+Complete
+Actual Time	0H 20M
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+copypaste did most of the job for me. had to do some ifs to handle cases of things being null at times, which was a bit
+weird to think my way though. overall not particulary bad though.
+
+================================================================
+find_word
+Start
+Estimated Time	1H 0M
+Plan:
+(Order of implementation, testing approach, etc.)
+time estimate right back up because theres 3 whole categories of unit tests for this one function, probably gonna
+be messy.
+
+Complete
+Actual Time	HH 15m
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+wait a minute that was all?
+
+went really easy, guess im just grasping how to do this properly
+
+reused a little bit of loop logic to loop through the full list, and just was able to utilize the strcmp output
+to do most of the heavy lifting for me. had to crunch out a couple segfaults that were solely the error of me not ordering
+my null checks in the proper order(had the check if the first char was \0 before checking if the word was null in the first place)
+
+beyond that I thiiiink thats all I have to do?
+
+================================================================

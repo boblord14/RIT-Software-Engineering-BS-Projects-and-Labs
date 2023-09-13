@@ -1,0 +1,39 @@
+./tester
+**********Starting tests**************************************** 
+* For these three tests verify that you see usage instructions * 
+* It is up to you to manually verify correctness! ************** 
+Test 1: No arguments.  Should print usage for filesec program.
+Usage:
+filesec -e|-d [filename]
+
+******************Test 2: Insufficient arguments.  Should print usage for filesec program.
+Usage:
+filesec -e|-d [filename]
+
+******************Test 3: Wrong arguments.  Should print usage for filesec program.
+Usage:
+filesec -e|-d [filename]
+
+******************************
+
+*Now beginning system tests***
+Test 4: Encrypt file
+Encryption verified
+
+******************Test 5: Decrypt file
+Decryption complete
+
+******************Test 6: Validate content
+Files testfile1.txt and testfile1_enc_dec.txt are identical 
+
+******************Test 7: Encrypt second file
+Encryption verified
+
+******************Test 8: Decrypt second file
+Decryption complete
+
+******************Test 9: Validate content, file2
+Files testfile2.txt and testfile2_enc_dec.txt are identical 
+
+****************Done*************
+

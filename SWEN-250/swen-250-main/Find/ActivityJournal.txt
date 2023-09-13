@@ -1,0 +1,22 @@
+SWEN-250 Activity Reflection
+
+Name:
+Ethan Patterson
+================================================================
+Start
+Estimated Time	1H MM
+Plan:
+(Order of implementation, testing approach, etc.)
+just get started on them in the order theyre listed. the array variant
+should be pretty easy, pointer shouldnt be awful too its just a matter of remembering how syntax for it works
+
+
+Complete
+Actual Time	0h 45m
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+a lot easier than I expected, it all just sort of worked right every time i made something. no major issues and the methods I thought of to impliment each function worked perfectly every time 
+(except for some small syntax errors but thats expected in the process of writing stuff)
+
+getting better at pointer shenanigans too which is nice. 
+================================================================

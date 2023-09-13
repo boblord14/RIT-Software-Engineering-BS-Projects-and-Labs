@@ -1,0 +1,28 @@
+SWEN-250 Activity Reflection
+
+Name:
+Ethan Patterson
+================================================================
+Start
+Estimated Time	1H 0M
+Plan:
+(Order of implementation, testing approach, etc.)
+Actual work doesnt seem too hard. just a matter of understanding the pointer work again as per usual. 
+
+
+Complete
+Actual Time	4H MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+Overshot my time estimate due to massive skill issue. Stupid errors that weren't really related to the project but more me just screwing up simple things
+and taking forever to notice what I did. 
+
+Had one error in filter_any_index that took me like 2 hours to resolve, I asked chris and he couldnt figure it out either. The solution was really stupid. I bet money I tried it too and it didnt work before
+but for some reason it works fine now. 
+
+The actual pointer and memory work came pretty easily. Occasional error but I caught all of those quickly, valgrind helped a lot and was pretty straightforward once I learned where to see my issue in all the stuff it spits out. 
+
+Had to nut up and port my project off of nitron and to the jetbrains c ide so I could have the nicer more visual debugger for fixing the bugs I was having. Made it a lot faster, its just a pain to set up the 
+project because the structure for that ide is weird. 
+
+================================================================

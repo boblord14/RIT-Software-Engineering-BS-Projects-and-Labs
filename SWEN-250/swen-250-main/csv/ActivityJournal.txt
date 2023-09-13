@@ -1,0 +1,36 @@
+SWEN-250 Activity Reflection
+
+Name:
+Ethan Patterson
+================================================================
+Implement code to pass all unit tests
+
+Estimated Time	HH MM  1h 15m
+Plan:
+(Order of implementation, testing approach, etc.)
+probably just some funny for loop stuff on top of input/output work.
+
+maybe a bit of time poking around structs
+
+
+Complete
+Actual Time	HH MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+
+
+
+================================================================
+Test correct operation from the command line
+
+Estimated Time	HH MM
+Plan:
+(Order of implementation, testing approach, etc.)
+
+Complete
+Actual Time	HH MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+
+
+================================================================

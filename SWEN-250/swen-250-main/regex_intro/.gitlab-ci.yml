@@ -1,0 +1,31 @@
+image:
+  name: kalrabb/docker-swen-250-identifier-convention-chkr-img:latest
+#  name: kalrabb/swen-250-project-ci:latest
+#  name: kalrabb/ub_250_base:latest
+
+variables:
+  PROJECT_FOLDER: regex_intro
+  BUILD_CMD: make
+  RUN_CMD: valgrind --leak-check=full ./regex_intro
+  IDENT_NAME_CHKR: python3 run.py /builds/$CI_PROJECT_PATH/$PROJECT_FOLDER
+
+before_script:
+# check a few settings   - cat /etc/lsb-release
+  - which gcc
+  - which g++
+  - which valgrind
+  - which make
+  - pwd
+#  - env
+  - cd $PROJECT_FOLDER
+
+testrunner:
+ script:
+   - $BUILD_CMD
+   - $RUN_CMD
+   - cd /identifier_convention_checker
+   - pwd
+   - $IDENT_NAME_CHKR
+
+ stage: test
+

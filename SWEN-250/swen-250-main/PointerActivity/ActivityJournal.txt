@@ -1,0 +1,24 @@
+SWEN-250 Activity Reflection
+
+Name:
+Ethan Patterson
+================================================================
+Start
+Estimated Time	1H 30M
+Plan:
+(Order of implementation, testing approach, etc.)
+Figure out what its even asking me to do
+
+Figure out pointer syntax
+
+Inevetably screw up pointer syntax and figure out what went wrong
+
+Complete
+Actual Time	2H 00M
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+I feel theres a more efficient method to read stdin into the char array for the string but idk 
+
+it just works though. syntax wasnt as bad as I thought, although im still struggling to see the direct use for pointers even though I do know there has to be something.
+
+================================================================

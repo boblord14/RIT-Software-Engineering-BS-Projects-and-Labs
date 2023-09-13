@@ -1,0 +1,31 @@
+SWEN-250 Activity Reflection
+
+Name: Ethan Patterson
+
+================================================================
+Start
+Estimated Time	1H 15M
+Plan:
+(Order of implementation, testing approach, etc.)
+Figure out how to read in file via args
+
+Split and look at line by line
+
+Check for whitespaces, skip or go to next line as need be
+
+Count chars and words by parsing the line
+
+Complete
+Actual Time	3H 00m
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+Wasted most of the time trying to read in from file instead, and bashing my head against segfaults and other garbage.
+
+Took about my original estimated time to scrap it and write it properly. 
+
+Starting to get the hang of working through unix now, even if it is a tad more complicated for the same result compared to something like the jetbrains IDEs. 
+Still, I dont mind it. 
+
+Would love to figure out a read from file variant but thats a task for a day when I have more experience and freetime. 
+
+================================================================

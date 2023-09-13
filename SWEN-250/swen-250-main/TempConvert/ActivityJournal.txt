@@ -1,0 +1,53 @@
+
+SWEN-250 Activity Reflection
+
+Name: Ethan Patterson
+
+================================================================
+Start Part 1
+Estimated Time	0H 30M
+
+Plan:
+(Order of implementation, testing approach, etc.)
+
+Figure out how to go about compiling and running programs with c/unix in general
+Figure out basic syntax and how it differes from how I percieve it
+Write out the function
+Test/bugfix
+Compile final and submit
+
+
+Complete
+Actual Time	0H 20M
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+
+5 compiler errors total
+
+Didnt realize I could hit the up arrow to just run the last command or a couple commands back, made testing much faster
+
+Int arethmatic is all ints, said that in the instructions but it didn't click until I tried dividing 5/9 and kept getting 0 as my final result
+
+The printf string format is a bit funky but not the worst
+
+================================================================
+Start Part 2
+Estimated Time	0H 10M
+Plan:
+(Order of implementation, testing approach, etc.)
+
+Figure out how floats work(99% sure its just casting like java was)
+Impliment the float edition
+
+Complete
+Actual Time	0H 10M
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+
+2 compiler errors total
+
+Changing/casting stuff to floats was the easy part. Took me a minute to look through the lecture stuff to find out how to round the decimal to one place for the outputs.
+
+================================================================
+
+

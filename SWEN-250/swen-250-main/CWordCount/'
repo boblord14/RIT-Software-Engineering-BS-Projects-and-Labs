@@ -1,0 +1,32 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <ctype.h>
+
+#define FALSE (0)
+#define TRUE  (1)
+
+int main(int ac, char **argv) { /* in goes the args */
+	int tot_chars = 0 ;	/* total characters */
+	int tot_lines = 0 ;	/* total lines */
+	int tot_words = 0 ;	/* total words */
+
+	char currentLine[900]; 						/*arbitrary limit for size and the fgets max char length*/
+	FILE *txt = fopen(argv[1], "r");
+
+	while(fgets(currentLine, 800, txt)){		/*hopefully working line by line through the file*/
+		printf("%s\n", currentLine);
+		tot_lines++; 						/*each while loop iteration should be a line*/
+		int eachChar = 0;					/*going through each char in line one by one, this is the index*/
+		while(currentLine[eachChar]!='\0'){			/*check if not end of line*/
+			tot_chars++;					/*not end of line? thats another char*/
+			if(isspace(currentLine[eachChar])){		/*if whitespace add space*/
+				tot_words++;
+			}
+			eachChar++;					/*beef up the index*/
+		}
+		currentLine[0]='\0';
+	}
+	printf("%d %d %d\n", tot_chars, tot_lines, tot_words);
+
+	return 0 ;
+}

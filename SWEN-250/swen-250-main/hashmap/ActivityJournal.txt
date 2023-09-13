@@ -1,0 +1,25 @@
+(do i even need to do this? unsure but id rather not lose points so here goes)
+
+
+hash function: 
+expected time- 10mins
+plan- logic is basically given to me, right? I think all i need to do is just copy it in c code really
+
+actual time- 5m
+comments- was that easy
+
+lookup function:
+expected time- 20m
+plan- bit more confusing on what to do this time around. basically just need to get a clear idea on how the hash function plays into it and beyond that its just a standard
+traversal into matching specific value in a struct/pointer
+
+actual time- 15m
+comments- ran into a stupid error that was skill issue on my part with pointers, but beyond that it was straightforward when it clicked the list was a list of linked lists p much
+
+drop function:
+expected time- 20m
+plan- just need to connect the prev/next pointers around the object where it was and then free the mem i think
+
+actual time- 15m
+comments- massive if else garbage block due to having to deal with front/end edge cases, no way around it unfortunately
+ran into one error where i forgot that i needed to connect the hashmap slot to the next object in the linked list if there was one instead of just NULL-ing it out

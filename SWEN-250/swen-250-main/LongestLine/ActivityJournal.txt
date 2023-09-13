@@ -1,0 +1,41 @@
+SWEN-250 Activity Reflection
+
+Name: Ethan Patterson
+
+================================================================
+Part 1
+Estimated Time	00 30m
+Plan:
+(Order of implementation, testing approach, etc.)
+This is just simple "read line, toss in char array, no?" 
+
+like a 1 line job with fgets and maybe some other stuff for the "return -1" bit or something
+
+
+Complete
+Actual Time	0H 15m
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+It was that easy
+
+
+
+================================================================
+Part 2
+Estimated Time	0H 30M
+Plan:
+(Order of implementation, testing approach, etc.)
+
+Just compare shenanigans with strlen I think and maybe some sort of easy copy function
+
+Complete
+Actual Time	1H 0M
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+Realized my read was wrong as it needed to return the line length not the length of the cut part(if cut) which seriously overcomplicated it
+
+I then proceeded to waste my time even further by compiling it under the wrong name and then wondering why my changes werent fixing the program when I ran it.
+
+The actual work wasn't bad at all, I was just stupid. 
+
+================================================================

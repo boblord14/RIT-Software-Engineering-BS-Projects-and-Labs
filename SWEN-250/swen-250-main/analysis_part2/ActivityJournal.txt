@@ -1,0 +1,138 @@
+SWEN-250 Document Analysis Journal
+
+Implement these functions in the order below.
+
+Your name:Ethan Patterson
+
+================================================================
+process_word
+Start
+Estimated Time	HH 20m
+Plan:
+(Order of implementation, testing approach, etc.)
+just a matter of using existing functions and slapping some basic logic on them. nothing special except remembering what things do again
+Complete
+Actual Time	HH 10m
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+just as described
+
+================================================================
+get_first_word
+Start
+Estimated Time	HH 5m
+Plan:
+(Order of implementation, testing approach, etc.)
+wait a minute is this literally just getting p_head?
+Complete
+Actual Time	HH 2m
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+yeah it was that easy
+
+================================================================
+get_next_word
+Start
+Estimated Time	HH 5m
+Plan:
+(Order of implementation, testing approach, etc.)
+basically the same concept just with p_current into p_next
+
+Complete
+Actual Time	HH 5M
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+exactly as described
+
+================================================================
+get_last_word
+Start
+Estimated Time	HH 2M
+Plan:
+(Order of implementation, testing approach, etc.)
+ctrl c ctrl v get_first_word and change p_head to p_tail
+
+Complete
+Actual Time	HH 2M
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+exactly that easy
+
+================================================================
+get_prev_word
+Start
+Estimated Time	HH 2M
+Plan:
+(Order of implementation, testing approach, etc.)
+ctrl c ctrl v get_next_word, change next to prev
+
+Complete
+Actual Time	HH 2M
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+exactly that
+
+================================================================
+read_file through test 56
+Start
+Estimated Time	HH 20M
+Plan:
+(Order of implementation, testing approach, etc.
+this has a bunch of given iniatialized variables that i have no clue what they do. gonna take some time to figure out why those are given
+
+
+Complete
+Actual Time	HH 30M
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+couple minor skill issues with reading my code and a lot of waisted time due to nitron/unix/vim crapping out over dumb things
+found a funny function to check for alphanumeric thats built into the c library that made things a fair bit easier
+
+================================================================
+read_file MLK_dream_excerpt only
+Start
+Estimated Time	HH 10M
+Plan:
+(Order of implementation, testing approach, etc.)
+is this just making sure the read function works on a large scale?
+
+Complete
+Actual Time	HH 00M
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+yeah worked fine right off the bat with no additional errors
+
+================================================================
+write_unique_word_list_to_csv_file
+Start
+Estimated Time	HH 20M
+Plan:
+(Order of implementation, testing approach, etc.)
+figure out how to write to files again because i completely forgot
+
+
+Complete
+Actual Time	HH 30M
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+accidentially recursively filled up my entire alloted storage space on nitron and had to beat the life out of it to get it to work again so that was fun
+
+beyond that it was a really easy error that led to that which i missed. 
+
+================================================================
+Add four unit tests to the unit_tests_student.c file
+Start
+Estimated Time	HH 20M
+Plan:
+(Order of implementation, testing approach, etc.)
+copy existing unit test format, slap in some basic logic, and i should be good
+
+Complete
+Actual Time	HH 30M
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+only took longer than expected because i kept screwing up strcmp formatting and had to use a pointer to get around it in a way i liked. 
+beyond that pretty straightforward. 
+
+at this point since the unit tests are happy and valgrind is happy i think im done. 
+================================================================
