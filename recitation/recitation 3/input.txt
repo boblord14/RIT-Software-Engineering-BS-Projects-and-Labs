@@ -1,4 +1,0 @@
-d a b c
-banana apple blueberry fruit orange pear
-c bb aa b a
-c bb aa ccc b bbb aaa c bb
