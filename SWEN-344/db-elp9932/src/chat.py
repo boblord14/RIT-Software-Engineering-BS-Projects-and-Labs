@@ -97,6 +97,14 @@ def getMembersOfCommunity(community):
     """
     return exec_get_all(f"""SELECT userID FROM membership_list WHERE communityID=\'{getIDFromCommunityName(community)}\'""")
 
+def getAllCommunities():
+    """Returns a list of all valid community ids"""
+    return exec_get_all(f"SELECT communityID FROM community_list")
+
+def getSuspendedUsers(date):
+    """Returns a list of the userids for all currently suspended users"""
+    return exec_get_all(f"SELECT userID FROM suspension_list WHERE (suspensionStart <= \'{date}\' AND \'{date}\' < suspensionEnd)")
+
 def isUserBanned(username, community, date):
     """Takes in a username, a community and a date and checks if the user is banned during that time in that community
     Returns true or false if that user is banned during the given date in the given community
@@ -426,4 +434,92 @@ def getMentions(username):
 
     return mentionList
 
+def searchMsgStringInCommunity(community, searchTerm):
+    """Searches for the input string in the message content from the given community and returns a list of messages that contain that string.
+
+    Prints a result to the console. 
+    
+    Keyword arguments:
+    community -- the name of the community to search
+    searchTerm -- string to search for
+    """
+    stringFormat = ' '.join(searchTerm.split()) #cleans up whitespace garbage just in case, necessary for next part
+    stringFormat = stringFormat.replace(" ", " & ") #changes whitespace to the postgres formatting for multiple words in search
+    commID = getIDFromCommunityName(community)
+    validChannelIDs = getChannelIDsFromCommunityID(commID)
+    validMessages = []
+    for channelID in validChannelIDs:
+        validMessages = validMessages + exec_get_all(f"SELECT * FROM message_list WHERE (channelID = \'{channelID[0]}\' AND (to_tsvector(messageContent) @@ to_tsquery(\'{stringFormat}\')))")
+    actualMessages = []
+    if(validMessages == [] or validMessages == None):
+        print(f"\nFound 0 messages matching \"{searchTerm}\"") 
+        return -1
+    for message in validMessages:
+        actualMessages.append(message[4])
+    print(f"\nFound {len(validMessages)} messages matching \"{searchTerm}\":")
+    print(actualMessages)
+    return validMessages
+
+def activitySummary(date):
+    """takes in a specific date and returns a summary of activity over the previous 30 days from the input date.
+    
+    returns a table with the following values: Community name, average message per day(counting messages longer than 5 chars), and number of users who have sent at least one message longer than 5 chars
+    should include a row for every valid community. 
+
+    Prints the result to the console as well. 
+
+    Keyword arguments:
+    date -- date to search up to 30 days prior for the summary data
+    """
+    communityList = getAllCommunities()
+    results = []
+    for communityID in communityList: #iterate over each community
+        communityName = exec_get_one(f"SELECT communityName FROM community_list WHERE communityID = \'{communityID[0]}\'")
+        channelList = getChannelIDsFromCommunityID(communityID[0])
+        messageCount = 0
+        userCount = []
+        startDate = date - datetime.timedelta(days = 30) 
+        for channelID in channelList: #iterate over each channel in said community
+            messageCountingData = exec_get_one(f"SELECT COUNT(*) FROM message_list WHERE(channelID = \'{channelID[0]}\' AND CHAR_LENGTH(messageContent)>5 AND \'{startDate}\' < date AND date <= \'{date}\')")
+            messageCount = messageCount + messageCountingData[0]
+
+            userChannelData = exec_get_all(f"SELECT DISTINCT senderID FROM message_list WHERE(channelID = \'{channelID[0]}\' AND CHAR_LENGTH(messageContent)>5 AND \'{startDate}\' < date AND date <= \'{date}\')")
+            if userChannelData != None:
+                userCount = userCount + userChannelData #will have double counting. need to purge duplicates
+        finalMsgAverage = messageCount/30 #get actual average per day
+        finalUserCount = len(list(set(userCount))) #purge duplicate userids and get count of what remains
+        dataDict = {'community': communityName[0], 'avg_num_messages': round(finalMsgAverage, 2), 'active_users':finalUserCount}
+        results.append(dataDict)
+    print("\nActivity Summary:")
+    print(results)
+    return results
+
+def moderatorQuery(startDate, endDate, currentDate):
+    """takes in a start date and an end date, checks if a currently suspended user(currently according to currentDate) has sent a message within the time range and returns all suspended users who have
+    
+    Prints the result to the console as well.
+
+    Keyword arguments:
+    startDate -- start of the date range to search
+    endDate -- end of the date range to search
+    currentDate -- what counts as current date for the purpose of "currently suspended"
+    """
+    suspendedUsers = getSuspendedUsers(currentDate)
+    markedUsers = []
+    for userID in suspendedUsers:
+        numMsgs = exec_get_one(f"SELECT COUNT(*) FROM message_list WHERE (senderID=\'{userID[0]}\' AND \'{startDate}\'<=date AND date<=\'{endDate}\')")[0]
+        if numMsgs>0:
+            markedUsers.append(userID)
+    markedUsernames = []
+    for userID in markedUsers:
+        markedUsernames.append(exec_get_one(f"SELECT username FROM user_list WHERE ID=\'{userID[0]}\'")[0])
+    if markedUsernames == []:
+        print(f"\nThere are no messages from currently suspended users within the given date range")
+        return -1
+    else:
+        print(f"\nThe following currently suspended users have sent a message in the given date range: {markedUsernames}")
+        return markedUsernames
+
+
+    
     

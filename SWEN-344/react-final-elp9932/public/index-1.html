@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Web Assignment 1</title>
+  <meta name="description" content="First web assignment">
+  <meta name="author" content="student name">
+  <link rel="stylesheet" href="vend.css">
+  <script>
+    var details = {'Candy': ['M&M', 2.00, 6],
+              'Salty': ['Ruffles', 1.50, 9],
+              'Fruity': ["Welch's Fruit Gummy", 2.50, 1],
+              'Bars': ['Kind', 3.0, 5]
+  }
+
+    function handleChange()
+    {
+        let obj = document.getElementById("dropdown2");
+        let value = obj.value;
+        var info = details[value];
+        var text = "";
+        if (value != "")
+        {
+            let name = "<span style='color:red'>"+ info[0]+"</span><br>";
+            let price = "<span style='color:green'>"+ "$" + info[1].toFixed(2)+"</span><br>";
+            let qty = "<span style='color:blue'>"+ info[2]+"</span><br>";
+            text = name + price + qty;
+        }
+        let textDiv = document.getElementById('details');
+        textDiv.innerHTML = text;
+        console.log(textDiv)
+    }
+
+    function handleClick(obj)
+    {
+      let selection = document.getElementById('dropdown2').value;
+      let info = details[selection];
+      info[2] = info[2] - 1;
+      handleChange();
+    }
+  </script>
+</head>
+<body>
+  <div>Vendo
+    <h1 style="font-family: Verdana; font-size:36px; text-align: center; font-weight: bold;">SWEN-344 Web Assignment 1</h1>
+    <h2 style="font-family: Impact; text-align: center;">Section xx</h2>
+  
+  <div class="flex-container">
+    <div class="col1 rounded">
+      <div class="row">A</div>
+      <div class="row">b</div>
+      <div class="row">X</div>
+    </div>
+    <div class="col2 rounded">
+      <div class="row">A</div>
+    </div>
+    <div class="col3 rounded">
+      <div class="row">A</div>
+    </div>
+    <div class="col4 rounded">
+      <div class="row">A</div>
+    </div>
+  </div>
+
+  <div class="flex-container">
+    <div class="centered">
+      <input id="selection" style="width: 20px;"></input>
+      <button id="id_up">^</button>
+      <button id="id_dn">v</button>
+    </div>
+  </div>
+          
+  </div>
+</body>
+</html>

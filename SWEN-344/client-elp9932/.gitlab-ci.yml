@@ -1,0 +1,77 @@
+image:
+  name: node:18
+
+variables:
+  CURR_APP: "" #Will be changed to your React project name.  Do not modify
+
+  PROJECT_NAME2: elp9932-react-client2 #e.g. acb123-react-client2.  Change to YOUR project 
+
+  PROJECT_NAME3: elp9932-react-client3  #e.g. acb123-react-client3.  Change to YOUR project 
+
+  PROJECT_NAME4: elp9932-react-client4  #e.g. acb123-react-client4.  Change to YOUR project 
+
+  OUTPUT_DIR2: public/$PROJECT_NAME2
+  OUTPUT_DIR3: public/$PROJECT_NAME3
+  OUTPUT_DIR4: public/$PROJECT_NAME4
+  URL_APP2: $CI_PAGES_URL/$PROJECT_NAME2
+  URL_APP3: $CI_PAGES_URL/$PROJECT_NAME3
+  URL_APP4: $CI_PAGES_URL/$PROJECT_NAME4
+
+.script-run-build: &script-run-build |
+  echo "CURR APP:"$CURR_APP
+
+  #Make sure directory for the app exists
+
+  if [  ! -d "$CURR_APP" ]; then
+    echo "CURRENT APP not set, or directory does not exist - nothing to build!"
+  else
+    cd $CURR_APP 
+    echo "Create subfolder in gitlab public folder"
+    mkdir ../public/$CURR_APP
+    npm install
+    npm run build
+    echo "Copy build folder to gitlab public folder"
+    cp -p -r build/* ../public/$CURR_APP 
+    #echo "Your web page will be at" $CI_PAGES_URL"/"$CURR_APP
+
+  fi
+  echo "Return to the root directory"
+  cd .. 
+
+cache:
+  paths:
+  - node_modules/
+
+before_script:
+  - pwd
+  - python3 --version
+  - node --version
+pages:
+  stage: deploy
+  script:
+    # This magical incantation will inject a build version just before </body>"
+
+    - CI="" #Ignore warnings.  e.g. unused classes are warnings but will stop build w/o this
+
+    # Float left on div to place at bottom with react components
+
+    - sed -i "s|</body>|<div style="float:left"><small>Built on GitLab branch <code>$CI_COMMIT_REF_NAME</code> commit <code>$CI_COMMIT_SHORT_SHA</code> $(date)</small></div></body>|g" public/index.html
+
+#    - echo "env"
+
+#    - env
+
+    - echo "Check current directory"
+    - pwd
+    - CURR_APP=$PROJECT_NAME2
+    - *script-run-build 
+    - CURR_APP=$PROJECT_NAME3
+    - *script-run-build 
+    - CURR_APP=$PROJECT_NAME4
+    - *script-run-build 
+    - echo "URL for CLIENT-2:"$URL_APP2
+    - echo "URL for CLIENT-3:"$URL_APP3
+    - echo "URL for CLIENT-4:"$URL_APP4
+  artifacts:
+    paths:
+    - public

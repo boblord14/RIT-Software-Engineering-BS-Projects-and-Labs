@@ -12,7 +12,6 @@ def buildBaseTestData():
 
 def loadNewTestData():
    """Builds the initial test data with the additional data for DB2 testing"""
-   rebuildTables()
    buildBaseTestData()
    createUser("DrMarvin", "790-575-3487")
    createUser("Bob", "683-287-2535")
@@ -20,8 +19,6 @@ def loadNewTestData():
 
 def loadCommunityTestData():
    """Builds the initial test data with the community augmentations for DB3 testing"""
-   rebuildTables()
-   buildBaseTestData()
    loadNewTestData()
    createUser("spicelover", "645-204-1958")
    joinCommunity("spicelover", "Arrakis")
@@ -30,6 +27,12 @@ def loadCommunityTestData():
    sendDM("Paul", "Moe", "test message P to M", None)
    sendDM("Moe", "Paul", "test message M to P", None)
    sendDM("Paul", "Moe", "test message P to M #2", None)
+
+def loadAnalyticsTestData():
+   loadCommunityTestData()
+   suspendUser("Paul", "Arrakis", datetime.date(2222, 2, 22), datetime.date(2023, 10, 1))
+   sendChannelMessage("Abbott", "Comedy", "#Dialogs", "please reply", None)
+   sendChannelMessage("Costello", "Comedy", "#Dialogs", "i replied already!", None)
 
 def importCSVData():
    """Imports the test csv data. nothing special."""
@@ -209,4 +212,33 @@ class TestChat(unittest.TestCase):
        """Tests counting dms(slightly redundant)"""
        loadCommunityTestData()
        self.assertEqual(3, len(readDMConversation("Paul", "Moe")), "There should be 3 dms between Paul and Moe")
+
+    def test_search_strings(self):
+       """Tests the search functionality returning messages """
+       loadAnalyticsTestData()
+       firstSearch = searchMsgStringInCommunity("Comedy", "reply")
+       self.assertEqual(2, len(firstSearch), "search for \"reply\" should return 2 messages")
+       self.assertEqual("please reply", firstSearch[0][4], "search for \"reply\", first message should be \"please reply\"")
+       self.assertEqual("i replied already!", firstSearch[1][4], "search for \"reply\", second message should be \"i replied already!\"")
+
+       secondSearch = searchMsgStringInCommunity("Comedy", "reply please")
+       self.assertEqual(1, len(secondSearch), "search for \"reply please\" should return 1 message")
+       self.assertEqual("please reply", secondSearch[0][4], "search for \"reply please\", first message should be \"please reply\"")
+
+       thirdSearch = searchMsgStringInCommunity("Comedy", "asdfasdfasdfasdfasdfasdfasdf") #shouldnt find
+       self.assertEqual(-1, thirdSearch, "search for \"asdfasdfasdfasdfasdfasdfasdf\" should return nothing")
+   
+    def test_activity_summary(self):
+       """hard to test this one programmatically. check the console. should just be the two communities, with only 2 messages in comedy and none anywhere else. 2/30 msgs per day there."""
+       loadAnalyticsTestData()
+       activitySummary(datetime.date(2023,10,15))
+    
+    def test_moderator_query(self):
+       """testing that the mod query, read the console output too"""
+       loadAnalyticsTestData()
+       sendChannelMessage("Paul", "Arrakis", "#Worms", "Test msg", datetime.date(1000,1,1))
+       queryResults = moderatorQuery(datetime.date(999,1,1), datetime.date(1001,1,1), datetime.date(2023,10,1))
+       self.assertEqual("Paul", queryResults[0], "Paul(currently suspended) should have a message within the date range")
+       nulQueryResult = moderatorQuery(datetime.date(902,1,1), datetime.date(903,1,1), datetime.date(2023,10,1))
+       self.assertEqual(-1, nulQueryResult, "There should be no messages from any currently suspended user within the date range")
 

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Web Assignment 0</title>
+  <meta name="description" content="First web assignment">
+  <meta name="author" content="student name">
+  <script>
+    var details = {'Candy': ['M&M', 2.00, 6],
+              'Salty': ['Ruffles', 1.50, 9],
+              'Fruity': ["Welch's Fruit Gummy", 2.50, 1],
+              'Bars': ['Kind', 3.0, 5]
+  }
+
+    function handleChange()
+    {
+        let obj = document.getElementById("dropdown2");
+        let value = obj.value;
+        var info = details[value];
+        var text = "";
+        if (value != "")
+        {
+            let name = "<span style='color:red'>"+ info[0]+"</span><br>";
+            let price = "<span style='color:green'>"+ "$" + info[1].toFixed(2)+"</span><br>";
+            let qty = "<span style='color:blue'>"+ info[2]+"</span><br>";
+            text = name + price + qty;
+        }
+        let textDiv = document.getElementById('details');
+        textDiv.innerHTML = text;
+        console.log(textDiv);
+        handleChangeDivs();
+    }
+
+    function handleChangeDivs()
+    {
+        let obj = document.getElementById("dropdown2");
+        let value = obj.value;
+        var info = details[value];
+        var name = ""; var price = ""; var qty = "";
+        if (value != "")
+        {
+            name = info[0];
+            price =  "$"+info[1].toFixed(2);
+            qty = info[2];
+        }
+        document.getElementById('name').innerText = name;
+        document.getElementById('price').innerText = price;
+        document.getElementById('qty').innerText = qty;
+    }
+
+    function handleClick(obj)
+    {
+      let selection = document.getElementById('dropdown2').value;
+      let info = details[selection];
+      info[2] = info[2] - 1;
+      handleChange();
+    }
+  </script>
+</head>
+<body>
+  <div>Vendo
+    <h1 style="font-family: Verdana; font-size:36px; text-align: center; font-weight: bold;">SWEN-344 Web Assignment 0</h1>
+    <h2 style="font-family: Impact; text-align: center;">Section xx</h2>
+  
+    <div style="padding:10px; text-align: center; align-items: center; margin: 5px;">
+      <select name="dropdown" id="dropdown2" onchange="handleChange()">
+        <option></option>
+        <option value="Candy">Candy</option>
+        <option value="Salty">Salty</option>
+        <option value="Fruity">Fruity</option>
+        <option value="Bars">Bars</option>
+      </select>
+      <div style="text-align: center; margin: 10px;">
+      <div style="display: inline-block; text-align: left;">
+        <div id="details" style="border: solid black 2px; width:100px; height: 100px"></div>
+        <button id="buy" style="padding: 10px; text-align: center; align-items:center;margin: 5px;"   onClick="handleClick()">Buy Me</button>
+      </div>
+    </div>
+
+
+    <div style="text-align: center; margin: 10px;">
+        <div style="display: inline-block; text-align: left;">
+          <div id="div_details" style="border: solid black 2px; width:100px; height: 100px">
+            <div id="name" style="color: red"></div>
+            <div id="price" style="color: blue"></div>
+            <div id="qty" style="color: green"></div>
+          </div>
+          <button id="buy" style="padding: 10px; text-align: center; align-items:center;margin: 5px;"   onClick="handleClick()">Buy Me</button>
+        </div>
+      </div>
+    </div>
+          
+  </div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+
+body 
+{
+font-family: "Segoe UI";
+background-color:beige;
+}
+
+.centered
+{
+    margin: auto;
+    width: 100%;
+    padding: 8x;
+    text-align: center;
+}
+
+.border1
+{
+    border-style: 'dotted';
+    border-width: 1;
+    border-color: 'lightGrey'
+}
+
+.border3
+{
+    border: 3px solid grey;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 1200px;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+
+  .rounded{
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+  }
+  
+  .product{
+    margin:20px;
+    border: solid 1px black;
+    height: 150px;
+    width:20%;
+  }
+
+.col1 {
+      margin-right:20px;
+      margin-bottom:10px;
+      border: solid 1px black;
+      height: 150px;
+      width:20%;
+  }
+
+.col2 {
+    margin-right: 20px;
+    margin-bottom:10px;
+    border: solid 1px black;
+    height: 100px;
+    width:20%;
+}
+
+.col3 {
+    margin-right: 20px;
+    margin-bottom:10px;
+    border: solid 1px black;
+    height: 100px;
+    width:20%;
+}
+
+.col4 {
+    margin-right: 20px;
+    margin-bottom:10px;
+    border: solid 1px black;
+    height: 100px;
+    width:20%;
+}
+
+.row {
+    width: 80%;
+}
+
+.yellow {
+    background-color: yellow;
+    color: black;
+}
+
+.green {
+    background-color: lightgreen;
+    color: blue;
+}
+
+.grey {
+    background-color: gray;
+    color: white;
+}
+
+.customContainer{
+    padding-top: 1%;
+    display: flex;
+    min-width: 90%;
+    justify-content: center;
+}

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" style="font-family: Segoe UI">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="First web assignment">
+  <meta name="author" content="Ethan Patterson">
+  <script type = "text/javascript">  
+    function changeText() {   
+      const club = document.getElementById("clubs").value;
+      const info = document.getElementById("info");
+
+      if(club === "none"){
+        info.style.backgroundColor = "white";
+        info.style.color = "black";
+        info.textContent = "";
+      }else if(club === "arcane"){
+        info.style.backgroundColor = "black";
+        info.style.color = "white";
+        info.textContent = "Name: Club Arcane\nLocation:Tampa Bay\nMusic:Power Metal";
+      }else if(club === "underground"){
+        info.style.backgroundColor = "blue";
+        info.style.color = "orange";
+        info.textContent = "Name: Club Underground\nLocation:Dundee\nMusic:Symphonic Metal";
+      }else if(club === "soda"){
+        info.style.backgroundColor = "purple";
+        info.style.color = "yellow";
+        info.textContent = "Name: Club Soda\nLocation:Antartica\nMusic:Melodic Metal";
+      }else if(club === "studio"){
+        info.style.backgroundColor = "green";
+        info.style.color = "pink";
+        info.textContent = "Name: Studio 52\nLocation:Principality of Sealand\nMusic:Speed Metal";
+      }else if(club === "ciros"){
+        info.style.backgroundColor = "yellow";
+        info.style.color = "blue";
+        info.textContent = "Name: Ciro’s\nLocation:In your walls\nMusic:Fantasy Metal";
+      }else if(club === "paradisio"){
+        info.style.backgroundColor = "red";
+        info.style.color = "orange";
+        info.textContent = "Name: Paradisio Garage\nLocation:In my imagination\nMusic:Gothic Power Metal";
+      }
+
+    }  
+    </script>  
+</head>
+<body>
+
+    <h1 style='font-weight: bold; font-family: "Verdana"; size: 36px; text-align: center;'>SWEN-344 Web Assignment </h1>
+    <h2 style='font-family: "Impact"; text-align: center;'>Section 04</h2>
+  <br>
+  <select id="clubs" onchange=changeText() style="margin: auto; display: block;">
+    <option value="none" selected></option>
+    <option value="arcane">Club Arcane</option>
+    <option value="underground">Club Underground</option>
+    <option value="soda">Club Soda</option>
+    <option value="studio">Studio 52</option>
+    <option value="ciros">Ciro’s</option>
+    <option value="paradisio">Paradisio Garage</option>
+  </select>
+  <br>
+
+  <textarea id="info" rows="5" readonly style="margin: auto; display: block;"></textarea>
+</body>
+</html>

@@ -1,0 +1,39 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .rounded{
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+  }
+  
+
+.col1 {
+      flex-basis: 120px;
+      margin-right:20px;
+      margin-bottom:10px;
+  }
+
+.col2 {
+    flex-basis: 180px;
+    margin-right: 20px;
+    margin-bottom:10px;
+}
+
+.col3 {
+    flex-basis: 70px;
+    margin-right: 10px;
+    margin-bottom:10px;
+}
+
+.col4 {
+    flex-basis: 180px;
+    margin-right: 10px;
+    margin-bottom:10px;
+}

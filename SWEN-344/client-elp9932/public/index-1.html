@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" style=>
+  <head>
+    <link rel=stylesheet href=clubs.css>
+    <script type="text/javascript" src="clubs.js"></script>
+    <meta charset="utf-8">
+    <meta name="description" content="Client 1 assignment">
+    <meta name="author" content="Ethan Patterson">
+  </head>
+  <body>
+    <h1>Nightclub Capacity</h1>
+    <h3>Each time someone enters/ leaves the club, select the correct club and click the appropriate button</h3>
+    <div class="flex-container">
+      <div>
+        <button class="clubBox" id="arcane">Club Arcane <div class="clubStatus" id="arcaneStatus"></div>
+        </button>
+        <div class="clubCount" name="count">0</div>
+      </div>
+      <div>
+        <button class="clubBox" id="underground">Club Underground <div class="clubStatus" id="undergroundStatus"></div>
+        </button>
+        <div class="clubCount" name="count">0</div>
+      </div>
+      <div>
+        <button class="clubBox" id="soda">Club Soda <div class="clubStatus" id="sodaStatus"></div>
+        </button>
+        <div class="clubCount" name="count">0</div>
+      </div>
+      <div>
+        <button class="clubBox" id="studio">Studio 52 <div class="clubStatus" id="studioStatus"></div>
+        </button>
+        <div class="clubCount" name="count">0</div>
+      </div>
+    </div><br><br>
+    <div class="container">
+      <div class="radio">
+        <div><label><input type="radio" name="clubs">Club Arcane</label></div>
+        <div><label><input type="radio" name="clubs">Club Underground</label></div>
+        <div><label><input type="radio" name="clubs">Club Soda</label></div>
+        <div><label><input type="radio" name="clubs">Studio 52</label></div>
+      </div>
+    </div>
+    <div class="container">
+      <div><button class="buttons" type="button" onclick="addMember()" id="addbutton">+</button></div>
+      <div><button class="buttons" type="button" onclick="removeMember()" id="removebutton">-</button></div>
+    </div>
+  </body>
+</html>

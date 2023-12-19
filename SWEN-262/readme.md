@@ -1,0 +1,13 @@
+This is a copy of my repo for SWEN-262, Engineering of Software Subsystems.
+
+This class deals with smart code writing, mainly designing parts of code in "design patterns". Such design patterns are templates to accomplish a specific goal while adhering to the prinicles of good software design in a way that would be more difficult otherwise. 
+
+This repository contains a java project called "MUD: Multi User Dungeon". It was a team project with a team of 5 people that we worked on throughout the semester, with two due dates for deliverables with specific requirements. This project was signifigantly more complex than the ones the other teams were assigned, and as a result it was much, much more difficult to meet deadlines with a product that met every requirement(the extra difficulty was acknowledged by our professor, this is not my personal bias after working on it/seeing other team's work). 
+
+Regardless of all that, we were able to meet all the requirements at the end. The deliverable for the first due date was a functional text based version with a PTUI interface that could play the basic game. This is done quite well, but note that at no point in our work were we asked to *balance* the game. It is brutally unfair, but proper balance wasn't something we could accomplish without signifigant scope creep. 
+
+The second delieverable was a GUI version using JAVAFX, along with a new endless gamemode, support for multiple users(non networked) in endless mode, new endless exclusive features such as checkpoints, and more. This was much more work and especially with the end of the semester coming up at the time, we barely managed to get everything polished. As a result there is a lack of high quality documentation and most likely some useless/redundant functions or other garbage in the code that could be cleaned up if we had more time.  
+
+One requirement of note was the save system requiring json, xml, OR csv saving now. After working at it, we realized that CSV is directly impossible to save the volume of data that we have to serialize/deserialize, and xml had more errors of the same type, but more in the syntax realm of errors. As a result, while they do save to those filetypes, those files just contain json strings and the contents are serialized/dserialized as json. It's a weird workaround but it does meet the requirements to the letter. 
+
+We used many design partterns in our work, such as singleton, memento, adapter, decorator, factory, composite, observer, and more. Most of these were implimented quite well and the code that falls under these patterns is usually our cleanest and best work. 

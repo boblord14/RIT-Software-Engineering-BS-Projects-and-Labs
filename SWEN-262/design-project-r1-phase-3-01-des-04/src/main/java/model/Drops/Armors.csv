@@ -1,0 +1,7 @@
+name,description,value,weight
+Leather Armor,This is leather hide fashioned into armor,1,15
+Gambison,This is canvas and padding used to stop attacks,2,10
+Chainmail Armor,This Armor is made of small rings weaved together to amek armor,3,5
+Scalemail,This armor is made of 1 inche scales put that can move past each other,3,5
+Half-Plate Armor,This is armor half made of plates made to protect vital organs,4,3
+Full-Plate Armor,This armor is fully made of very prtective plates,5,1

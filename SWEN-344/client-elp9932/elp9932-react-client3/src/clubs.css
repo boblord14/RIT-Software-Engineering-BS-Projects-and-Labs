@@ -1,0 +1,82 @@
+html {
+    font-family: Segoe UI
+}
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    display: flex;
+    justify-content: center;
+    min-width: 90% /*kmr*/
+}
+
+.rowSize { min-width: 90%}
+
+.clubBox {
+/*kmr  width: 180px;
+    height: 400px;*/
+    margin-bottom: 20%;
+    
+    background-color: lightgreen;
+    border-radius: 20%;
+    text-align: center;
+}
+
+
+.clubCount {
+    font-weight: bold;
+    font-size: xx-large;
+    text-align: center;
+}
+
+
+.upButton {
+    padding-right: 14px;
+    padding-left: 14px;
+    padding-top: 7px;
+    margin: 5%;
+    align-content: center;
+    background-color: green;
+}
+
+.downButton {
+    padding-right: 14px;
+    padding-left: 14px;
+    padding-top: 7px;
+    margin: 5%;
+    align-content: center;
+    background-color: red;
+}
+
+.removeButton {
+    padding: 7px;
+    margin: 5%;
+    align-content: center;
+    background-color: yellow;
+}
+
+.editButton {
+    padding: 7px;
+    margin: 5%;
+    align-content: center;
+    background-color: lightblue;
+}
+
+.addButton {
+    padding: 7px;
+    margin: 1%;
+    background-color: lightcoral;
+    
+}
+
+.searchBar{
+    max-width: 40%;
+}
+
+.customContainer{
+    display: flex;
+    min-width: 90%;
+    justify-content: center;
+}
